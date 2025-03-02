@@ -27,7 +27,7 @@ def apply_nms(boxes, threshold=100):
 def run_test():
     model = YOLO("allen-head-small-v3.pt")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device}")
+    print(f"Using device: {device}")  
     # Define input folder
     input_folder = "test_imgs_HD_sample"
     debug = False

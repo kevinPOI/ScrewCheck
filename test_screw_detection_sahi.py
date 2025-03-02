@@ -12,12 +12,12 @@ import os
 # )
 detection_model = AutoDetectionModel.from_pretrained(
     model_type="yolo11",
-    model_path="allen-head-small-v2.pt",
+    model_path="allen-head-small-v3.pt",
     confidence_threshold=0.1,
     device="cuda:0",  # or 'cuda:0'
 )
 # Define input and output folders
-input_folder = "test_imgsHD"
+input_folder = "test_imgs_HD"
 output_folder = "test_results"
 os.makedirs(output_folder, exist_ok=True)  # Create folder if it doesn't exist
 
@@ -37,7 +37,7 @@ for filename in os.listdir(input_folder):
 
         # Crop the image
         cropped_image = image[:, crop_x_start:crop_x_end]
-
+        cropped_image = cv2.resize(cropped_image, [1280,1280])
         # Perform sliced detection
         result = get_sliced_prediction(
             cropped_image,
