@@ -20,11 +20,11 @@ from ultralytics import YOLO
 from roboflow import Roboflow
 rf = Roboflow(api_key="ysXcOkuwq46DKP58MBEg")
 project = rf.workspace("test-5ev0m").project("allen-head-screw-detection")
-version = project.version(6)
+version = project.version(8)
 dataset = version.download("yolov11")
 model = YOLO("yolo11s.pt")  # load a pretrained model. change this to the model you want to use, n, s, l etc. (only ending)
 save_dir = ("runs_locate")
-results = model.train(data="allen-head-screw-detection-6/data.yaml", imgsz=1280, batch=6, epochs=50, plots=True, save_dir = save_dir)   
+results = model.train(data="allen-head-screw-detection-8/data.yaml", imgsz=320, batch=64, epochs=80, plots=True, save_dir = save_dir)   
 
 # !pip install roboflow
 

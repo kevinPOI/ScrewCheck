@@ -4,7 +4,7 @@ import cv2
 import os
 model = YOLO("allen-head-hd.pt")
 
-input_folder = "test_imgs2"
+input_folder = "test_imgsHD"
 for filename in os.listdir(input_folder):
     file_path = os.path.join(input_folder, filename)
     
